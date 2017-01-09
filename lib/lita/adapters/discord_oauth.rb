@@ -58,6 +58,6 @@ module Lita
 
     end
 
-    Lita.register_adapter(:discord, Discord_oauth)
+    Lita.register_adapter(:discord_oauth, Discord_oauth)
   end
 end
