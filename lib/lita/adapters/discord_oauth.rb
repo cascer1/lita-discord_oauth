@@ -13,30 +13,28 @@ module Lita
 
       def run
         STDOUT.write('Starting')
-        @client.ready do |event|
+        @client.ready do |e|
           robot.trigger(:connected)
-          STDOUT.write('Connected to Discord')
+
+          @client.message do |event|
+            message = event.message
+            message_text = message.content
+
+            user = Lita::User.find_by_id(message.author.id)
+            user = Lita::User.create(user) unless user
+
+            channel = event.channel.id
+
+            source = Lita::Source.new(user: user, room: channel)
+            msg = Lita::Message.new(robot, message_text, source)
+
+            robot.receive(msg) #unless message.from_bot?
+
+          end
         end
 
-        @client.message do |event|
-          message = event.message
-          message_text = message.content
 
-          user = Lita::User.find_by_id(message.author.id)
-          user = Lita::User.create(user) unless user
-
-          channel = event.channel.id
-
-          source = Lita::Source.new(user: user, room: channel)
-          msg = Lita::Message.new(robot, message_text, source)
-
-          puts msg
-
-          robot.receive(msg) #unless message.from_bot?
-
-        end
-
-        @client.run(:async)
+        @client.run
       end
 
       def shut_down
