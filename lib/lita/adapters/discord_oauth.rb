@@ -6,7 +6,6 @@ module Lita
       # insert adapter code here
       config :token, type: String, required: true
       config :client, type: String, required: true
-      config :prefix, type: String, required: true
 
       def initialize(robot)
         super
