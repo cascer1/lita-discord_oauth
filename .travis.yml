@@ -11,6 +11,6 @@ deploy:
   api_key:
     secure: CwdufyZxjzSWvlTmhlXoas7T+Z7LL24zvt5yGoNAf4LVpY4g57f9HAGuOfW0sJyOMuJcX+id85CXWieVOOtqOZsRryHO92ENwaIeumNRIwDGwO5ez9udtjDL66qVdSoSn4tbWSZVIjrGNnkFmvsV5VPInLxw8PoDE7Y3kYsfoOjB5gBvJaegHXIdHJhLl5yRwi3e9Qp7lyvv8IdUKvYPan5WaNQ9z3JiGWLrJbQR2S2Ph+8xlKUkjeAo3HZ9wTDannHqGq5oMkyCkLD4cW4mWpWQzYM2SyvePg27y5R/pPNBpAmXUMwr/R997+FF0z1EejZq9wer1taq06427cOPQ/lJS4NsCnUr+pvFwe/5iJ+hcR3xSURFhtJaEt8BBnYL1VZjNXZUrEaBou4boELL/Yae+9TtyBcaFmzCNBAANb9zifrY1eWON0yw0grs0HivRb9TKXlvIu81cIYsPesM3nuUXWBKU0pnDWmZiSc0Axd+CgGe1Wz2ycmI/Zl9ozLa/3+mTRQ6N5+JMvBsEw8NEUmEB+C4iSxFS1wF5QxP8INq5V39dWbrAanoZK++AKeORye2Usz3Ox5zP8kpfc6p55EcTaGCJkT/19Ir9NHjjKBWT5xHIalA6RvTrIKE/Apu2+gwAmiE/fZBJ5uHaCBiY+JW/NsoMJNLFjuF2mVYNHY=
   gem: lita-discord_oauth
-  on:
-#    tags: true
-    repo: cascer1/lita-discord
+#  on:
+##    tags: true
+#    repo: cascer1/lita-discord
