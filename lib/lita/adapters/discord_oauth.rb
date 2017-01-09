@@ -21,7 +21,7 @@ module Lita
           robot.trigger(:connected)
         end
 
-        @client.message(starts_with: config.prefix) do |event|
+        @client.message do |event|
           message = event.message
           message_text = message.content
 
