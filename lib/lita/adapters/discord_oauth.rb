@@ -14,7 +14,7 @@ module Lita
       end
 
       def run
-        @client.connect
+        @client.run
 
 
         @client.ready do
