@@ -3,7 +3,6 @@ require 'discordrb'
 module Lita
   module Adapters
     class Discord_oauth < Adapter
-      # insert adapter code here
       config :token, type: String, required: true
       config :client, type: String, required: true
 
@@ -13,11 +12,10 @@ module Lita
       end
 
       def run
-        @client.run
-
-
-        @client.ready do
+        STDOUT.write('Starting')
+        @client.ready do |event|
           robot.trigger(:connected)
+          STDOUT.write('Connected to Discord')
         end
 
         @client.message do |event|
@@ -31,6 +29,8 @@ module Lita
 
           source = Lita::Source.new(user: user, room: channel)
           msg = Lita::Message.new(robot, message_text, source)
+
+          puts msg
 
           robot.receive(msg) #unless message.from_bot?
 
@@ -50,7 +50,7 @@ module Lita
           if mention
             message = mention + ',\n' + message
 
-          @client.send_message(target.channel, message)
+            @client.send_message(target.channel, message)
           end
         end
       end
