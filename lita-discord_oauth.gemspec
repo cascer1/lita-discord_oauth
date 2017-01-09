@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name          = 'lita-discord_oauth'
   spec.version       = '0.1.0'
-  spec.version       = "#{spec.version}.alpha#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
+  spec.version       = "#{spec.version}.alpha.#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
   spec.authors       = ['Cas Eliëns']
   spec.email         = ['cas.eliens@gmail.com']
   spec.description   = 'Discord Adapter for Lita'
