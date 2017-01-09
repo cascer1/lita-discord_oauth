@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['cas.eliens@gmail.com']
   spec.description   = 'Discord Adapter for Lita'
   spec.summary       = 'Adapter to connect Lita to Discord using OAuth'
-  spec.homepage      = 'https://github.com/cascer1/lita-discord'
+  spec.homepage      = 'https://github.com/cascer1/lita-discord_oauth'
   spec.license       = 'GPL-3.0+'
   spec.metadata      = {'lita_plugin_type' => 'adapter'}
 
