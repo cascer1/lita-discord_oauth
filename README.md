@@ -1,6 +1,6 @@
 # lita-discord
 
-[![Build Status](https://travis-ci.org/cascer1/lita-discord.png?branch=master)](https://travis-ci.org/cascer1/lita-discord)
+[![Build Status](https://travis-ci.org/cascer1/lita-discord.png?branch=master)](https://travis-ci.org/cascer1/lita-discord) [![Gem Version](https://badge.fury.io/rb/lita-discord_oauth.svg)](https://badge.fury.io/rb/lita-discord_oauth)
 
 TODO: Add a description of the plugin.
 
