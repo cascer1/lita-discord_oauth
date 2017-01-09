@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 
-describe Lita::Adapters::Discord, lita: true do
+describe Lita::Adapters::Discord_oauth, lita: true do
 end
