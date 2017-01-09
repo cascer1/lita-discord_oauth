@@ -46,6 +46,7 @@ module Lita
       end
 
       def send_messages(target, messages)
+        #TODO: Does Lita provide some odd user object?
         mention = @client.user(target.user).mention
 
         messages.each do |message|
