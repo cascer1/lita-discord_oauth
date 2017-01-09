@@ -3,7 +3,7 @@ Gem::Specification.new do |spec|
   spec.version       = '0.1.0'
   spec.authors       = ['Cas Eliëns']
   spec.email         = ['cas.eliens@gmail.com']
-  spec.description   = 'Adapter to connect Lita to Discord'
+  spec.description   = 'Discord Adapter for Lita'
   spec.summary       = 'Adapter to connect Lita to Discord'
   spec.homepage      = 'https://github.com/cascer1/lita-discord'
   spec.license       = 'GPL-3.0+'
