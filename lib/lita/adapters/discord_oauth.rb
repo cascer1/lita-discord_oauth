@@ -36,7 +36,7 @@ module Lita
 
         end
 
-        @client.run
+        @client.run(:async)
       end
 
       def shut_down
