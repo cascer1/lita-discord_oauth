@@ -1,4 +1,4 @@
 en:
   lita:
     adapters:
-      discord:
+      discord_oauth:

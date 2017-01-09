@@ -8,6 +8,7 @@ services:
 - redis-server
 deploy:
   provider: rubygems
+  gem: lita-discord_oauth
   on:
     tags: true
   api_key:
