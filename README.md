@@ -9,7 +9,7 @@ TODO: Add a description of the plugin.
 Add lita-discord to your Lita instance's Gemfile:
 
 ``` ruby
-gem "lita-discord"
+gem "lita-discord-oauth"
 ```
 
 ## Configuration
