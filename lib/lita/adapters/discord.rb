@@ -58,6 +58,6 @@ module Lita
 
     end
 
-    Lita.register_adapter(:discord, self)
+    Lita.register_adapter(:discord, Discord)
   end
 end
