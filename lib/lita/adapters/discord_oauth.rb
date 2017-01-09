@@ -2,7 +2,7 @@ require 'discordrb'
 
 module Lita
   module Adapters
-    class Discord < Adapter
+    class Discord_oauth < Adapter
       # insert adapter code here
       config :token, type: String, required: true
       config :client, type: String, required: true
