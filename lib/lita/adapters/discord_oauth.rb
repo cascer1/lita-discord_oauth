@@ -20,6 +20,10 @@ module Lita
             message = event.message
             message_text = message.content
 
+            puts message_text
+            puts message
+            puts message.author.id
+
             user = Lita::User.find_by_id(message.author.id)
             user = Lita::User.create(user) unless user
 
