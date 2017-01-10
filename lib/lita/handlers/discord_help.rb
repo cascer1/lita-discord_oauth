@@ -45,7 +45,7 @@ module Lita
 
             messages.push(part)
             parsed += part
-            message_copy = message_copy[part.length - 1...message_copy.length - part.length]
+            message_copy = message_copy[part.length - 1...-1]
           end
         end
 
