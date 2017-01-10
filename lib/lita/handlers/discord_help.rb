@@ -56,7 +56,11 @@ module Lita
         part = message.to_s[0...limit - 1]
         break_index = part.rindex("\n")
 
-        message[0, break_index]
+        if break_index != nil
+          message[0, break_index]
+        else
+          message
+        end
       end
 
       def table_row(key, value)
