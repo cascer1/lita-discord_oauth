@@ -27,8 +27,8 @@ module Lita
       private
 
       def table_row(key, value)
-        key_width = 25
-        value_width = 112
+        key_width = 30
+        value_width = 107
 
         key_text = key.ljust(key_width, ' ')
 

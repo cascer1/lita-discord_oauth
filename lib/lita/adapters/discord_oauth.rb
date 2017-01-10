@@ -73,18 +73,17 @@ module Lita
       end
 
       def send_messages(target, messages)
-        Lita.logger.debug('Target user ID: ' + target.user.id)
-        Lita.logger.debug('Target channel ID: ' + target.room)
+        Lita.logger.debug("Sending message to user #{target.user.id} in channel #{target.room}")
 
         mention = @client.user(target.user.id).mention
-
-        Lita.logger.debug('Mention: ' + mention)
 
         messages.each do |message|
           if mention
             message = mention + ",\n" + message
 
             Lita.logger.debug(message)
+
+            Lita.logger.debug('Message is too long') if message.length > 2000
 
             @client.send_message(target.room, message)
           end
