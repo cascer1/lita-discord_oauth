@@ -22,8 +22,18 @@ module Lita
 
           @client.message do |event|
             message = event.message
+            channel = event.channel.id.to_s
             author_id = message.author.id.to_s
-            author_name = message.author.display_name.to_s
+
+            if event.channel.pm?
+              # We're dealing with a PM
+              author_name = message.author.username.to_s
+            else
+              # We're dealing with a regular (server) message
+              author_name = message.author.display_name.to_s
+            end
+
+
 
             Lita.logger.debug("Received message from #{author_name}(#{author_id}): #{message.content}")
             Lita.logger.debug("Finding user #{author_name}")
@@ -44,9 +54,6 @@ module Lita
             end
 
             Lita.logger.debug('User ID: ' + user.id)
-
-            channel = event.channel.id.to_s
-
             Lita.logger.debug('Channel ID: ' + channel)
 
             source = Lita::Source.new(user: user, room: channel)
