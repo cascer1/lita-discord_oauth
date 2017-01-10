@@ -18,9 +18,8 @@ module Lita
 
           @client.message do |event|
             message = event.message
-            message_text = message.content
 
-            Lita.logger.debug('Message: ' + message)
+            Lita.logger.debug('Message: ' + message.content)
             Lita.logger.debug('Author ID: ' + message.author.id)
 
             user = Lita::User.find_by_id(message.author.id)
@@ -31,7 +30,7 @@ module Lita
             channel = event.channel.id
 
             source = Lita::Source.new(user: user, room: channel)
-            msg = Lita::Message.new(robot, message_text, source)
+            msg = Lita::Message.new(robot, message.content, source)
 
             robot.receive(msg) #unless message.from_bot?
 
