@@ -38,7 +38,7 @@ module Lita
           parsed = ''
           message_copy = message
 
-          while parsed != message do
+          while message_copy.length > 0 do
             part = get_message_part(message_copy, max_length)
 
             Lita.logger.debug("Part: #{part}")
