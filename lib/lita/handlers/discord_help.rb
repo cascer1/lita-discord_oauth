@@ -53,7 +53,7 @@ module Lita
       end
 
       def get_message_part(message, limit)
-        part = message[0, limit - 1]
+        part = message.to_s[0...limit - 1]
         break_index = part.rindex("\n")
 
         message[0, break_index]
