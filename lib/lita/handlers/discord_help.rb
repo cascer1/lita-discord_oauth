@@ -21,15 +21,25 @@ module Lita
 
         output = "```\n" + output.join("\n") + "\n```"
 
-        split_message(output)
+        messages = split_message(output)
 
-        response.reply_privately(output)
+        messages.each do |message|
+          if message[0...3] != '```'
+            message = '```' + "\n" + message
+          end
+
+          if message[-3] != '```'
+            message = '```' + "\n" + message
+          end
+
+          response.reply_privately(message)
+        end
       end
 
       private
 
       def split_message(message)
-        max_length = 2000 - 25 # Substract 25 for mention safety
+        max_length = 2000 - 30 # Substract 25 for mention safety
         messages = Array.new
 
         if message.length < max_length
@@ -54,7 +64,7 @@ module Lita
       end
 
       def get_message_part(message, limit)
-        message if message.length < limit # No need to check anything if the message is short enough
+        message if message.length <= limit # No need to check anything if the message is short enough
 
         part = message.to_s[0...limit - 1]
         break_index = part.rindex("\n")
