@@ -36,8 +36,7 @@ module Lita
 
               if user != nil
                 Lita.logger.debug("User #{author_id} found, updating name to #{author_name}")
-                user.name = author_name
-                user.save
+                user = Lita::User.create(author_id, {name: author_name})
               end
 
               Lita.logger.debug("User #{author_id} not found, creating now")
