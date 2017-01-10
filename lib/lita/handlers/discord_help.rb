@@ -29,7 +29,7 @@ module Lita
           end
 
           if message[-3] != '```'
-            message = '```' + "\n" + message
+            message = message + "\n" + '```'
           end
 
           response.reply_privately(message)
