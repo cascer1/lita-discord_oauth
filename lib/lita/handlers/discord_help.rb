@@ -27,6 +27,9 @@ module Lita
       private
 
       def table_row(key, value)
+
+        return "#{key} ||| #{value}"
+
         key_width = 25
         value_width = 112
 
