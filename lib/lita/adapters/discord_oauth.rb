@@ -18,11 +18,12 @@ module Lita
 
           @client.message do |event|
             message = event.message
+            author_id = message.author.id.to_s
 
             Lita.logger.debug('Message: ' + message.content)
-            Lita.logger.debug('Author ID: ' + message.author.id)
+            Lita.logger.debug('Author ID: ' + author_id)
 
-            user = Lita::User.find_by_id(message.author.id)
+            user = Lita::User.find_by_id(author_id)
             user = Lita::User.create(user) unless user
 
             Lita.logger.debug('User ID: ' + user.id)
