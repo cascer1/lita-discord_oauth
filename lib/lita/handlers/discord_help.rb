@@ -50,7 +50,6 @@ module Lita
         if message.length < max_length
           messages.push(message)
         else
-          parsed = ''
           message_copy = message
 
           while message_copy.length > 0 do
@@ -59,7 +58,6 @@ module Lita
             Lita.logger.debug("Part: #{part}")
 
             messages.push(part)
-            parsed += part
             message_copy.slice!(part)
             sleep(10)
           end
@@ -69,7 +67,14 @@ module Lita
       end
 
       def get_message_part(message, limit)
-        message if message.length <= limit # No need to check anything if the message is short enough
+        Lita.logger.debug("Getting message part from #{message}")
+
+        # if message.length <= limit
+        #   Lita.logger.debug('Message was short enough, returning it without modifications')
+        #   return message
+        # end
+
+        return message if message.length <= limit # No need to check anything if the message is short enough
 
         part = message.to_s[0...limit - 1]
         break_index = part.rindex("\n")
