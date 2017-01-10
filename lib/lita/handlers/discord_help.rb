@@ -19,7 +19,7 @@ module Lita
         output = build_help(response)
         output = filter_help(output, response)
 
-        output = "```\n" + output.join("\n") + "\n```"
+        output = output.join("\n")
 
         messages = split_message(output)
 
@@ -59,7 +59,6 @@ module Lita
 
             messages.push(part)
             message_copy.slice!(part)
-            sleep(10)
           end
         end
 
