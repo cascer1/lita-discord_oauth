@@ -4,7 +4,9 @@ module Lita
   # A namespace to hold all subclasses of {Handler}.
   module Handlers
     # Provides online help about Lita commands for users.
-    class DiscordHelp < Lita::Handler::ChatRouter
+    class DiscordHelp
+      extend Lita::Handler::ChatRouter
+
       route(/^help\s*(.+)?/, :help, command: true, help: {
           "help" => t("help.help_value"),
           t("help.help_command_key") => t("help.help_command_value")
