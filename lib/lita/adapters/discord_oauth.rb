@@ -27,7 +27,7 @@ module Lita
             Lita.logger.debug('Received message from ' + author_id + ': ' + message.content)
 
             user = Lita::User.find_by_id(author_id)
-            user = Lita::User.create(author_id) unless user
+            user = Lita::User.create(author_id, {name: message.author.display_name.to_s}) unless user
 
             Lita.logger.debug('User ID: ' + user.id)
 
