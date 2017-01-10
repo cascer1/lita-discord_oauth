@@ -34,7 +34,7 @@ module Lita
             source = Lita::Source.new(user: user, room: channel)
             msg = Lita::Message.new(robot, message.content, source)
 
-            robot.receive(msg) #unless message.from_bot?
+            robot.receive(msg) unless message.from_bot?
 
           end
         end
