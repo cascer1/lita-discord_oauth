@@ -52,9 +52,13 @@ module Lita
 
         mention = @client.user(target.user).mention
 
+        puts mention
+
         messages.each do |message|
           if mention
             message = mention + ',\n' + message
+
+            puts message
 
             @client.send_message(target.channel, message)
           end
