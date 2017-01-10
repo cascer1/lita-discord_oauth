@@ -5,3 +5,4 @@ Lita.load_locales Dir[File.expand_path(
 )]
 
 require 'lita/adapters/discord_oauth'
+require 'lita/handlers/discord_help'

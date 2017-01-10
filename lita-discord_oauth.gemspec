@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'Adapter to connect Lita to Discord using OAuth'
   spec.homepage      = 'https://github.com/cascer1/lita-discord_oauth'
   spec.license       = 'GPL-3.0+'
-  spec.metadata      = {'lita_plugin_type' => 'adapter'}
+  spec.metadata      = {'lita_plugin_type' => %w(adapter handler)}
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
