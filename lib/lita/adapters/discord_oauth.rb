@@ -57,7 +57,7 @@ module Lita
 
         messages.each do |message|
           if mention
-            message = mention + ',\n' + message
+            message = mention + ",\n" + message
 
             Lita.logger.debug(message)
 
