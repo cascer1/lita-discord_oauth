@@ -54,12 +54,14 @@ module Lita
       end
 
       def get_message_part(message, limit)
+        message if message.length < limit # No need to check anything if the message is short enough
+
         part = message.to_s[0...limit - 1]
         break_index = part.rindex("\n")
 
         Lita.logger.debug("Break index: #{break_index}")
 
-        if break_index != nil
+        if break_index != nil && break_index != 0
           message[0, break_index]
         else
           message
