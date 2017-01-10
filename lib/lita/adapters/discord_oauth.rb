@@ -20,12 +20,13 @@ module Lita
             message = event.message
             message_text = message.content
 
-            puts message_text
             puts message
             puts message.author.id
 
             user = Lita::User.find_by_id(message.author.id)
             user = Lita::User.create(user) unless user
+
+            puts user.id
 
             channel = event.channel.id
 
@@ -46,13 +47,13 @@ module Lita
       end
 
       def send_messages(target, messages)
-        puts target
-        puts target.user
-        puts target.user.id
+        puts 'Target: ' + target
+        puts 'Target user: ' + target.user
+        puts 'Target user id: ' + target.user.id
 
         mention = @client.user(target.user.id).mention
 
-        puts mention
+        puts 'Mention: ' + mention
 
         messages.each do |message|
           if mention
