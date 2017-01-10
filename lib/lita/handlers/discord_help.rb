@@ -2,7 +2,7 @@ module Lita
   # A namespace to hold all subclasses of {Handler}.
   module Handlers
     # Provides online help about Lita commands for users.
-    class DiscordHelp < Handler
+    class DiscordHelp < ChatRouter
       route(/^help\s*(.+)?/, :help, command: true, help: {
           "help" => t("help.help_value"),
           t("help.help_command_key") => t("help.help_command_value")
@@ -35,7 +35,7 @@ module Lita
         value_words.each do |word|
           new_value_line = "#{value_line} #{word}"
 
-          if new_value_line.length > value_width
+          if new_value_line.length > value_width + key_width + 1
             value_text += "#{value_line}\n" + ''.ljust(key_width + 1, ' ')
             value_line = word
           else
