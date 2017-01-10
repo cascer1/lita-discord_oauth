@@ -46,6 +46,7 @@ module Lita
             messages.push(part)
             parsed += part
             message_copy.slice!(part)
+            sleep(10)
           end
         end
 
