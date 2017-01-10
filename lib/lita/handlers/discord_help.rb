@@ -30,13 +30,13 @@ module Lita
 
       def split_message(message)
         max_length = 2000 - 25 # Substract 25 for mention safety
+        messages = Array.new
 
         if message.length < max_length
-          [message]
+          messages.push(message)
         else
           parsed = ''
           message_copy = message
-          messages = Array.new
 
           while parsed != message do
             part = get_message_part(message_copy, max_length)
@@ -47,9 +47,9 @@ module Lita
             parsed += part
             message_copy = message_copy[part.length - 1, -1]
           end
-
-
         end
+
+        messages
       end
 
       def get_message_part(message, limit)
