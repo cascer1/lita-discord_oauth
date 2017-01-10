@@ -24,15 +24,7 @@ module Lita
         messages = split_message(output)
 
         messages.each do |message|
-          if message[0...3] != '```'
-            message = '```' + "\n" + message
-          end
-
-          if message[-3] != '```'
-            message = message + "\n" + '```'
-          end
-
-          response.reply_privately(message)
+          response.reply_privately("```\n#{message}\n```")
         end
 
         if messages.length > 1
@@ -56,7 +48,7 @@ module Lita
             part = get_message_part(message_copy, max_length)
 
             Lita.logger.debug("Part: #{part}")
-
+            #FIXME: second part is not pushed to array
             messages.push(part)
             message_copy.slice!(part)
           end
