@@ -14,7 +14,10 @@ module Lita
       def help(response)
         output = build_help(response)
         output = filter_help(output, response)
-        response.reply_privately output.join("\n")
+
+        output = "```\n" + output.join("\n") + "\n```"
+
+        response.reply_privately(output)
       end
 
       private
