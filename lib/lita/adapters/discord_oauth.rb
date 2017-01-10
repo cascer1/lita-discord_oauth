@@ -16,6 +16,10 @@ module Lita
         @client.ready do |e|
           robot.trigger(:connected)
 
+          version = Gem.loaded_specs['lita-discord_oauth'].version
+
+          @client.game = "Version #{version}"
+
           @client.message do |event|
             message = event.message
             author_id = message.author.id.to_s
