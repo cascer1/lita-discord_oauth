@@ -48,9 +48,8 @@ module Lita
       end
 
       def send_messages(target, messages)
-        Lita.logger.debug('Target: ' + target)
-        Lita.logger.debug('Target user: ' + target.user)
         Lita.logger.debug('Target user ID: ' + target.user.id)
+        Lita.logger.debug('Target channel ID: ' + target.room)
 
         mention = @client.user(target.user.id).mention
 
