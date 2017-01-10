@@ -46,7 +46,6 @@ module Lita
       end
 
       def send_messages(target, messages)
-        #TODO: Does Lita provide some odd user object?
         puts target
         puts target.user
 
