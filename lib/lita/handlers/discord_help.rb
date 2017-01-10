@@ -21,10 +21,43 @@ module Lita
 
         output = "```\n" + output.join("\n") + "\n```"
 
+        split_message(output)
+
         response.reply_privately(output)
       end
 
       private
+
+      def split_message(message)
+        max_length = 2000 - 25 # Substract 25 for mention safety
+
+        if message.length < max_length
+          [message]
+        else
+          parsed = ''
+          message_copy = message
+          messages = []
+
+          while parsed != message do
+            part = get_message_part(message_copy, max_length)
+
+            Lita.logger.debug("Part: #{part}")
+
+            messages.push(part)
+            parsed += part
+            message_copy = message_copy[part.length - 1, -1]
+          end
+
+
+        end
+      end
+
+      def get_message_part(message, limit)
+        part = message[0, limit - 1]
+        break_index = part.rindex("\n")
+
+        message[0, break_index]
+      end
 
       def table_row(key, value)
         key_width = 30
