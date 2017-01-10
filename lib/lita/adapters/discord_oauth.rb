@@ -48,8 +48,9 @@ module Lita
       def send_messages(target, messages)
         puts target
         puts target.user
+        puts target.user.id
 
-        mention = @client.user(target.user).mention
+        mention = @client.user(target.user.id).mention
 
         puts mention
 
@@ -59,7 +60,7 @@ module Lita
 
             puts message
 
-            @client.send_message(target.channel, message)
+            @client.send_message(target.room, message)
           end
         end
       end
