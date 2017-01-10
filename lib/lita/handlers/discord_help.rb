@@ -34,6 +34,11 @@ module Lita
 
           response.reply_privately(message)
         end
+
+        if messages.length > 1
+          response.reply_privately('Sorry for splitting that up in multiple messages, Discord doesn\'t allow me to send responses longer than 2000 characters :(')
+        end
+
       end
 
       private
