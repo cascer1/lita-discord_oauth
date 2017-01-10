@@ -36,7 +36,7 @@ module Lita
         else
           parsed = ''
           message_copy = message
-          messages = new Array
+          messages = Array.new
 
           while parsed != message do
             part = get_message_part(message_copy, max_length)
