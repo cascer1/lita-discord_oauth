@@ -27,9 +27,6 @@ module Lita
       private
 
       def table_row(key, value)
-
-        return "#{key} ||| #{value}"
-
         key_width = 25
         value_width = 112
 
@@ -38,11 +35,12 @@ module Lita
         value_words = value.split(' ')
 
         value_text = ''
-        value_line = ''.ljust(key_width + 1, ' ')
+        value_line = ''
+
         value_words.each do |word|
           new_value_line = "#{value_line} #{word}"
 
-          if new_value_line.length > value_width + key_width + 1
+          if new_value_line.length > value_width
             value_text += "#{value_line}\n" + ''.ljust(key_width + 1, ' ')
             value_line = word
           else
