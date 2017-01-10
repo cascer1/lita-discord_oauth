@@ -23,11 +23,26 @@ module Lita
           @client.message do |event|
             message = event.message
             author_id = message.author.id.to_s
+            author_name = message.author.display_name.to_s
 
-            Lita.logger.debug('Received message from ' + author_id + ': ' + message.content)
+            Lita.logger.debug("Received message from #{author_name}(#{author_id}): #{message.content}")
+            Lita.logger.debug("Finding user #{author_name}")
 
-            user = Lita::User.find_by_id(author_id)
-            user = Lita::User.create(author_id, {name: message.author.display_name.to_s}) unless user
+            user = Lita::User.find_by_name(author_name)
+
+            if user == nil
+              Lita.logger.debug("User #{author_name} not found, trying ID #{author_id}")
+              user = Lita::User.find_by_id(author_id)
+
+              if user != nil
+                Lita.logger.debug("User #{author_id} found, updating name to #{author_name}")
+                user.name = author_name
+                user.save
+              end
+
+              Lita.logger.debug("User #{author_id} not found, creating now")
+              user = Lita::User.create(author_id, {name: author_name}) unless user
+            end
 
             Lita.logger.debug('User ID: ' + user.id)
 
