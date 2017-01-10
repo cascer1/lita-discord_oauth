@@ -20,13 +20,13 @@ module Lita
             message = event.message
             message_text = message.content
 
-            puts message
-            puts message.author.id
+            Lita.logger.debug('Message: ' + message)
+            Lita.logger.debug('Author ID: ' + message.author.id)
 
             user = Lita::User.find_by_id(message.author.id)
             user = Lita::User.create(user) unless user
 
-            puts user.id
+            Lita.logger.debug('User ID: ' + user.id)
 
             channel = event.channel.id
 
@@ -47,19 +47,19 @@ module Lita
       end
 
       def send_messages(target, messages)
-        puts 'Target: ' + target
-        puts 'Target user: ' + target.user
-        puts 'Target user id: ' + target.user.id
+        Lita.logger.debug('Target: ' + target)
+        Lita.logger.debug('Target user: ' + target.user)
+        Lita.logger.debug('Target user ID: ' + target.user.id)
 
         mention = @client.user(target.user.id).mention
 
-        puts 'Mention: ' + mention
+        Lita.logger.debug('Mention: ' + mention)
 
         messages.each do |message|
           if mention
             message = mention + ',\n' + message
 
-            puts message
+            Lita.logger.debug(message)
 
             @client.send_message(target.room, message)
           end
