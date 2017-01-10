@@ -1,6 +1,12 @@
 language: ruby
 rvm:
 - 2.3.0
+notifications:
+  email:
+    recipients:
+    - cas.eliens@gmail.com
+    on_success: change
+    on_failure: change
 script: bundle exec rake
 before_install:
 - gem update --system
