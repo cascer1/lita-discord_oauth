@@ -31,7 +31,7 @@ You can get both these values from [this page](https://discordapp.com/developers
 
 ## Usage
 
-This bot overrides the default help provider
+This bot includes a custom help command. You must disable the built-in help command to prevent double output.
 
 
 [travis-img]: https://img.shields.io/travis/cascer1/lita-discord_oauth.svg
