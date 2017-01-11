@@ -25,17 +25,10 @@ module Lita
 
         Lita.logger.debug(messages)
 
-        # max = messages.length
-
         messages.each { |message|
           response.reply_privately("```\n#{message}\n```")
           sleep(0.2)
         }
-
-        # messages.each do |message|
-        #   response.reply_privately("```\n#{message}\n```")
-        #   sleep(0.2)
-        # end
 
         if messages.length > 1
           response.reply_privately('Sorry for splitting that up in multiple messages, Discord doesn\'t allow me to send responses longer than 2000 characters :(')
@@ -62,7 +55,7 @@ module Lita
             Lita.logger.debug("Part: #{part}")
             #FIXME: second part is not pushed to array
             sleep(0.2)
-            messages.push(part)
+            messages = messages.push(part) # Just to be sure
             message_copy.slice!(part)
           end
         end
