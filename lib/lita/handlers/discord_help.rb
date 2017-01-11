@@ -56,9 +56,11 @@ module Lita
             #FIXME: second part is not pushed to array
             sleep(0.2)
             message_copy.slice!(part)
-            messages = messages.push(part) # Just to be sure
+            messages.push(part) # Just to be sure
           end
         end
+
+        messages
       end
 
       def get_message_part(message, limit)
