@@ -8,8 +8,8 @@ module Lita
       extend Lita::Handler::ChatRouter
 
       route(/^help\s*(.+)?/, :help, command: true, help: {
-          "help" => t("help.help_value"),
-          t("help.help_command_key") => t("help.help_command_value")
+          'help' => t('help.help_value'),
+          t('help.help_command_key') => t('help.help_command_value')
       })
 
       # Outputs help information about Lita commands.
@@ -48,6 +48,8 @@ module Lita
           message_copy = message
 
           while message_copy.length > 0 do
+            Lita.logger.debug("Message copy: #{message_copy}")
+
             part = get_message_part(message_copy, max_length)
 
             Lita.logger.debug("Part: #{part}")
