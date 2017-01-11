@@ -23,6 +23,8 @@ module Lita
 
         messages = split_message(output)
 
+        Lita.logger.debug(messages)
+
         messages.each do |message|
           response.reply_privately("```\n#{message}\n```")
         end
