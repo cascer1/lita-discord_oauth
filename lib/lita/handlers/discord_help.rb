@@ -18,6 +18,7 @@ module Lita
       def help(response)
         output = build_help(response)
         output = filter_help(output, response)
+        first_message = true
 
         output = output.join("\n")
 
@@ -26,7 +27,11 @@ module Lita
         Lita.logger.debug(messages)
 
         messages.each { |message|
-          response.reply_privately("```\n#{message}\n```")
+          if first_message
+            response.reply_privately("```\n#{message}\n```")
+          else
+            response.reply_privately("|||NOMENTION|||```\n#{message}\n```")
+          end
           sleep(0.2)
         }
 

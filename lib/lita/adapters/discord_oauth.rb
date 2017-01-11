@@ -79,11 +79,13 @@ module Lita
 
         messages.each do |message|
           if mention
-            message = mention + ",\n" + message
+            no_mention = message.slice!('|||NOMENTION|||')
 
-            Lita.logger.debug(message)
+            message = mention + ",\n" + message if no_mention != '|||NOMENTION|||'
 
-            Lita.logger.debug('Message is too long') if message.length > 2000
+
+
+            Lita.logger.info('Message is too long') if message.length > 2000
 
             @client.send_message(target.room, message)
           end
