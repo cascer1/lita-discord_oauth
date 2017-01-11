@@ -49,6 +49,7 @@ module Lita
 
             Lita.logger.debug("Part: #{part}")
             #FIXME: second part is not pushed to array
+            messages.push('This is a debug string!')
             messages.push(part)
             message_copy.slice!(part)
           end
