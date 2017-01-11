@@ -49,8 +49,8 @@ module Lita
 
             Lita.logger.debug("Part: #{part}")
             #FIXME: second part is not pushed to array
-            messages.push('This is a debug string!')
             messages.push(part)
+            messages.push('This is a debug string!')
             message_copy.slice!(part)
           end
         end
@@ -61,12 +61,12 @@ module Lita
       def get_message_part(message, limit)
         Lita.logger.debug("Getting message part from #{message}")
 
-        # if message.length <= limit
-        #   Lita.logger.debug('Message was short enough, returning it without modifications')
-        #   return message
-        # end
+        if message.length <= limit
+          Lita.logger.debug('Message was short enough, returning without modifications')
+          return message
+        end
 
-        return message if message.length <= limit # No need to check anything if the message is short enough
+        # return message if message.length <= limit # No need to check anything if the message is short enough
 
         part = message.to_s[0...limit - 1]
         break_index = part.rindex("\n")
@@ -107,7 +107,7 @@ module Lita
           value_text = "#{value_text}\n" + ''.ljust(key_width + 1, ' ') + "#{value_line}"
         end
 
-        key_text + value_text
+        key_text + value_text + "\n"
       end
 
       # Checks if the user is authorized to at least one of the given groups.
