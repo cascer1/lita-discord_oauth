@@ -25,10 +25,17 @@ module Lita
 
         Lita.logger.debug(messages)
 
-        messages.each do |message|
+        # max = messages.length
+
+        messages.each { |message|
           response.reply_privately("```\n#{message}\n```")
           sleep(0.2)
-        end
+        }
+
+        # messages.each do |message|
+        #   response.reply_privately("```\n#{message}\n```")
+        #   sleep(0.2)
+        # end
 
         if messages.length > 1
           response.reply_privately('Sorry for splitting that up in multiple messages, Discord doesn\'t allow me to send responses longer than 2000 characters :(')
