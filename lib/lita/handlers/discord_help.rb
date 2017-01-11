@@ -33,7 +33,6 @@ module Lita
           else
             response.reply_privately("|||NOMENTION|||```\n#{message}\n```")
           end
-          sleep(0.2)
         }
 
         if messages.length > 1
@@ -60,8 +59,6 @@ module Lita
             part = get_message_part(message_copy, max_length)
 
             Lita.logger.debug("Part: #{part}")
-            #FIXME: second part is not pushed to array
-            sleep(0.2)
             part = message_copy.slice!(part)
             messages.push(part)
 

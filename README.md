@@ -31,7 +31,7 @@ You can get both these values from [this page](https://discordapp.com/developers
 
 ## Usage
 
-TODO: Describe the plugin's features and how to use them.
+This bot overrides the default help provider
 
 
 [travis-img]: https://img.shields.io/travis/cascer1/lita-discord_oauth.svg
