@@ -27,6 +27,7 @@ module Lita
 
         messages.each do |message|
           response.reply_privately("```\n#{message}\n```")
+          sleep(1)
         end
 
         if messages.length > 1
@@ -52,7 +53,6 @@ module Lita
             Lita.logger.debug("Part: #{part}")
             #FIXME: second part is not pushed to array
             messages.push(part)
-            messages.push('This is a debug string!')
             message_copy.slice!(part)
           end
         end
@@ -63,12 +63,8 @@ module Lita
       def get_message_part(message, limit)
         Lita.logger.debug("Getting message part from #{message}")
 
-        if message.length <= limit
-          Lita.logger.debug('Message was short enough, returning without modifications')
-          return message
-        end
-
-        # return message if message.length <= limit # No need to check anything if the message is short enough
+        Lita.logger.debug('Message was short enough, returning without modifications') if message.length <= limit
+        return message if message.length <= limit # No need to check anything if the message is short enough
 
         part = message.to_s[0...limit - 1]
         break_index = part.rindex("\n")
