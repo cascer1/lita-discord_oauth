@@ -55,7 +55,7 @@ module Lita
             Lita.logger.debug("Part: #{part}")
             #FIXME: second part is not pushed to array
             sleep(0.2)
-            message_copy.slice!(part)
+            part = message_copy.slice!(part)
             messages.push(part)
 
             break if message_copy.length <= 0
