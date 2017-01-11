@@ -47,7 +47,7 @@ module Lita
         else
           message_copy = message
 
-          while message_copy.length > 0 do
+          loop do
             Lita.logger.debug("Message copy: #{message_copy}")
 
             part = get_message_part(message_copy, max_length)
@@ -56,8 +56,11 @@ module Lita
             #FIXME: second part is not pushed to array
             sleep(0.2)
             message_copy.slice!(part)
-            messages.push(part) # Just to be sure
+            messages.push(part)
+
+            break if message_copy.length <= 0
           end
+
         end
 
         messages
