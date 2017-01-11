@@ -29,6 +29,7 @@ module Lita
         messages.each { |message|
           if first_message
             response.reply_privately("```\n#{message}\n```")
+            first_message = false
           else
             response.reply_privately("|||NOMENTION|||```\n#{message}\n```")
           end
