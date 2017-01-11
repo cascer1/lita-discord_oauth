@@ -27,7 +27,7 @@ module Lita
 
         messages.each do |message|
           response.reply_privately("```\n#{message}\n```")
-          sleep(1)
+          sleep(0.2)
         end
 
         if messages.length > 1
@@ -52,6 +52,7 @@ module Lita
 
             Lita.logger.debug("Part: #{part}")
             #FIXME: second part is not pushed to array
+            sleep(0.2)
             messages.push(part)
             message_copy.slice!(part)
           end
