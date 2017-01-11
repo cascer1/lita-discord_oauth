@@ -2,3 +2,9 @@ en:
   lita:
     adapters:
       discord_oauth:
+    handlers:
+      help:
+        help:
+          help_value: Lists help information for terms and command the robot will respond to.
+          help_command_key: help COMMAND
+          help_command_value: Lists help information for terms or commands that begin with COMMAND.
