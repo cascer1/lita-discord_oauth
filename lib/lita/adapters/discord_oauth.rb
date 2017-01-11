@@ -12,7 +12,7 @@ module Lita
       end
 
       def run
-        STDOUT.write('Starting')
+        Lita.logger.debug('Starting discord_oauth adapter')
         @client.ready do |e|
           robot.trigger(:connected)
 
