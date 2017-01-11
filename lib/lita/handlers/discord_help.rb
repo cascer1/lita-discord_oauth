@@ -49,6 +49,7 @@ module Lita
 
           loop do
             Lita.logger.debug("Message copy: #{message_copy}")
+            part = 'Lorem ipsum, dolor sit amet'
 
             part = get_message_part(message_copy, max_length)
 
