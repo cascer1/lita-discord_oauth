@@ -1,9 +1,12 @@
 require 'lita/handler/chat_router'
 
+
+
 module Lita
   # A namespace to hold all subclasses of {Handler}.
   module Handlers
     # Provides online help about Lita commands for users.
+    Help.routes.pop
     class DiscordHelp
       extend Lita::Handler::ChatRouter
 
