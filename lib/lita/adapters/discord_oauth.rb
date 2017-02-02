@@ -70,6 +70,9 @@ module Lita
 
       def shut_down
         @client.stop
+        # FIXME: Heroku nightly power cycles don't always properly disconnect
+        # Perhaps slowing down the shutdown might help.
+        sleep(1)
       end
 
       def send_messages(target, messages)
