@@ -1,5 +1,5 @@
 Gem::Specification.new do |spec|
-  base_version = '1.1.1'
+  base_version = '1.1.2'
 
   spec.name          = 'lita-discord_oauth'
   spec.version       = base_version
