@@ -68,6 +68,10 @@ module Lita
         @client.run
       end
 
+      def chat_service
+        @client
+      end
+
       def shut_down
         @client.stop
         # FIXME: Heroku nightly power cycles don't always properly disconnect
