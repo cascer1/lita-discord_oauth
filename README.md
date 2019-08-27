@@ -8,6 +8,11 @@
 
 Discord adapter for Lita, using OAuth tokens.
 
+## No longer maintained
+
+This repository is no longer maintained since I moved away from Lita to JDA. 
+Feel free to use the code in this repository in your own Lita adapter.
+
 ## Installation
 
 Add lita-discord to your Lita instance's Gemfile:
